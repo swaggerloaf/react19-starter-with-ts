@@ -1,5 +1,5 @@
 import React from 'react';
-import MyApp from './components/App';
+import MyApp from './components/MyApp';
 import { createRoot } from 'react-dom/client';
 
 // Clear the existing HTML content
