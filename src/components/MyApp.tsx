@@ -2,9 +2,7 @@ import React from 'react';
 
 const MyApp: React.FC = () => {
   return (
-    <div>
-      Hello, world!
-    </div>
+    <p>I am a paragraph of text that has a few words in it.</p>
   );
 };
 
