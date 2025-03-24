@@ -1,9 +1,12 @@
 import React from 'react';
 
-const MyApp: React.FC = () => {
-  return (
-    <p>I am a paragraph of text that has a few words in it.</p>
-  );
+
+const divStyle = {
+  color: 'blue',
 };
 
-export default MyApp;
+export default function MyApp() {
+  return (
+    <p style={divStyle}>I am a paragraph of text that has a few words in it.</p>
+  );
+};
