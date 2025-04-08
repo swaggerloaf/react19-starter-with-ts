@@ -6,6 +6,7 @@ function TodoList() {
     queryKey: ['todos'], // Unique key for this query
     queryFn: fetchTodos, // Function to fetch data
   });
+  
 
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error fetching todos</div>;
@@ -13,7 +14,7 @@ function TodoList() {
   return (
     <ul>
       {data.map((todo) => (
-        <li key={todo.id}>{todo.title}</li>
+        <li key={todo.id}>{todo.text}</li>
       ))}
     </ul>
   );

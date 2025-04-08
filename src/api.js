@@ -1,11 +1,5 @@
-export async function fetchTodos() {
-    const response = await fetch('/api/todos'); // Replace with your API endpoint
-    const data = await response.json();
-    return data;
-}
-
-export async function createTodo(newTodo) {
-    const response = await fetch('/api/todos', {
+export async function fetchTodos(newTodo) {
+    const response = await fetch('https://gqsllxpd0c.execute-api.us-east-2.amazonaws.com/v1/todoOperations', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newTodo),
@@ -14,20 +8,25 @@ export async function createTodo(newTodo) {
     return data;
   }
 
-export async function updateTodo(todo) {
-    const response = await fetch(`/api/todos/${todo.id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(todo)
+export async function createTodo(newTodo) {
+    const response = await fetch('https://gqsllxpd0c.execute-api.us-east-2.amazonaws.com/v1/todoOperations', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(`{"operation": "create", "payload": {"Item": {"id": ${newTodo.id} , "text": ${newTodo.text}}}}`),
     });
     const data = await response.json();
     return data;
-}
+  }
 
-export async function deleteTodo(id) {
-    const response = await fetch(`/api/todos/${id}`, {
-        method: 'DELETE'
+
+  export async function deleteTodo(id) {
+    const response = await fetch('https://gqsllxpd0c.execute-api.us-east-2.amazonaws.com/v1/todoOperations', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(`{"operation": "delete", "payload": {"Key": ${id}}`),
     });
-    return response.ok;
-}
+    const data = await response.json();
+    return data;
+  }
+
   
