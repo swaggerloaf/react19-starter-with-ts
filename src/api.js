@@ -1,6 +1,6 @@
 export async function fetchTodos(newTodo) {
-    const response = await fetch('https://gqsllxpd0c.execute-api.us-east-2.amazonaws.com/v1/todoOperations', {
-      method: 'POST',
+    const response = await fetch('https://jsonplaceholder.typicode.com/todos', {
+      method: 'GET',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newTodo),
     });
@@ -9,7 +9,7 @@ export async function fetchTodos(newTodo) {
   }
 
 export async function createTodo(newTodo) {
-    const response = await fetch('https://gqsllxpd0c.execute-api.us-east-2.amazonaws.com/v1/todoOperations', {
+    const response = await fetch('https://jsonplaceholder.typicode.com/todos', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(`{"operation": "create", "payload": {"Item": {"id": ${newTodo.id} , "text": ${newTodo.text}}}}`),
@@ -20,8 +20,8 @@ export async function createTodo(newTodo) {
 
 
   export async function deleteTodo(id) {
-    const response = await fetch('https://gqsllxpd0c.execute-api.us-east-2.amazonaws.com/v1/todoOperations', {
-      method: 'POST',
+    const response = await fetch('https://jsonplaceholder.typicode.com/todos', {
+      method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(`{"operation": "delete", "payload": {"Key": ${id}}`),
     });
