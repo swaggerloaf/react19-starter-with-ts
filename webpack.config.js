@@ -50,7 +50,15 @@ module.exports = {
             loader: 'babel-loader'
           }
         ]
-      }
+      },
+      {
+        test: /\.gif$/,
+        type: 'asset/inline',
+      },
+      {
+        test: /\.(ttf|eot|svg)$/,
+        type: 'asset/resource',
+      },
     ]
   },
   plugins: [
